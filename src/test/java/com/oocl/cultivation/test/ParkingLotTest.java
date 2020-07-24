@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -63,5 +60,19 @@ public class ParkingLotTest {
 
         // then
         assertEquals(parkingBoy.getParkingLot().fetch(carTicket), car);
+    }
+
+    @Test
+    void should_return_no_car_when_custome_get_car_give_wrong_carTicket() {
+        // given
+        Customer customer = new Customer();
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        // when
+        CarTicket carTicket = customer.supply();
+        Car car = parkingBoy.fetch(carTicket);
+
+        // then
+        assertEquals(null, car);
     }
 }
