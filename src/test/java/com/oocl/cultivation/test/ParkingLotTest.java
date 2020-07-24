@@ -14,6 +14,7 @@ public class ParkingLotTest {
         // given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
+
         // when
         CarTicket carTicket = parkingLot.park(car);
 
