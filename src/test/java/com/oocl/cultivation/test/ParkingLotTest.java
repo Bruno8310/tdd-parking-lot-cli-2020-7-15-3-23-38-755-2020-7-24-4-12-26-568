@@ -46,9 +46,9 @@ public class ParkingLotTest {
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
                 // when
-        ArrayList<Car> cars = parkingBoy.parkCar(car);
+        int size = parkingBoy.parkCar(car);
         // then
-        assertEquals(parkingBoy.getCars().size(), cars.size());
+        assertEquals(parkingBoy.getCars().size(), size);
 
     }
 }
