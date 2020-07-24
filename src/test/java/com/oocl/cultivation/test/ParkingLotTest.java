@@ -2,8 +2,11 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.CarTicket;
+import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -35,7 +38,17 @@ public class ParkingLotTest {
 
         // then
         assertNotNull(car);
-//        assertEquals(car, actualCar);
+    }
+
+    @Test
+    void should_park_multiCar_when_park_by_packingBoy_give_car() {
+        // given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+                // when
+        ArrayList<Car> cars = parkingBoy.parkCar(car);
+        // then
+        assertEquals(parkingBoy.getCars().size(), cars.size());
 
     }
 }
