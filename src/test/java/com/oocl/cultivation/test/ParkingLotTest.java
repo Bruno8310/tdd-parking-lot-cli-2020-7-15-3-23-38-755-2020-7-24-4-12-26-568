@@ -45,10 +45,23 @@ public class ParkingLotTest {
         // given
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
-                // when
+        // when
         int size = parkingBoy.parkCar(car);
         // then
         assertEquals(parkingBoy.getCars().size(), size);
 
+    }
+
+    @Test
+    void should_return_car_when_fetch_car_by_carTicket_give_carTicket() {
+        // given
+        CarTicket carTicket = new CarTicket();
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        // when
+        Car car = parkingBoy.fetch(carTicket);
+
+        // then
+        assertEquals(parkingBoy.getParkingLot().fetch(carTicket), car);
     }
 }
