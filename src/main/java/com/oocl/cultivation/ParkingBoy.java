@@ -61,4 +61,7 @@ public class ParkingBoy {
     public void setResponseMessage(String responseMessage) {
         this.responseMessage = responseMessage;
     }
+
+    public void fetch() {
+    }
 }
