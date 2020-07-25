@@ -23,9 +23,9 @@ public class ParkingBoy {
 
     public int parkCar(Car car) {
         this.cars.add(car);
-        for (Car car1 : cars) {
-            this.parkingLot.carTicketCarMap.put(new CarTicket(), car);
-        }
+
+        this.parkingLot.carTicketCarMap.put(new CarTicket(), car);
+
         return this.cars.size();
     }
 

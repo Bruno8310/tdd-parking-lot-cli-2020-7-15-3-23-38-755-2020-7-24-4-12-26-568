@@ -88,4 +88,17 @@ public class ParkingLotTest {
         // then
         assertNull(thirdCar);
     }
+
+    @Test
+    void should_judge_parkingLotCapacity_when_parkingBoy_park_give_car() {
+        // give
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+
+        // when
+        CarTicket carTicket = parkingLot.judgeCapacityPark(car);
+
+        // then
+        assertNotNull(carTicket);
+    }
 }
