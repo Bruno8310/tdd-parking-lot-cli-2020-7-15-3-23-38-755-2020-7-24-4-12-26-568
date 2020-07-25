@@ -23,6 +23,6 @@ public class ParkingLot {
     }
 
     public void setCapacity() {
-        this.capacity -= 1;
+         --this.capacity;
     }
 }

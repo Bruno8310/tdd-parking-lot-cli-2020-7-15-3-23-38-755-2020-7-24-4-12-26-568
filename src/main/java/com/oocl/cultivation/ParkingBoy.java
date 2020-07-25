@@ -34,7 +34,7 @@ public class ParkingBoy {
     }
 
     public CarTicket judgeCapacityPark(Car car) {
-        if (this.getParkingLot().getCarTicketCarMap().size() <= this.getParkingLot().getCapacity()) {
+        if (this.getParkingLot().getCapacity() > 0) {
             CarTicket carTicket = this.park(car);
             this.getParkingLot().setCapacity();
             return carTicket;

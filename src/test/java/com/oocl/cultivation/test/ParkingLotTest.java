@@ -1,10 +1,11 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.*;
+import com.oocl.cultivation.Car;
+import com.oocl.cultivation.CarTicket;
+import com.oocl.cultivation.ParkingBoy;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -92,13 +93,15 @@ public class ParkingLotTest {
     @Test
     void should_judge_parkingLotCapacity_when_parkingBoy_park_give_car() {
         // give
-        Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
-
+        CarTicket carTicket = Mockito.mock(CarTicket.class);
         // when
-        CarTicket carTicket = parkingBoy.judgeCapacityPark(car);
+        for (int i = 0; i < 11; i++) {
+            Car car = new Car();
+            carTicket = parkingBoy.judgeCapacityPark(car);
+        }
 
         // then
-        assertNotNull(carTicket);
+            assertNull(carTicket);
     }
 }
