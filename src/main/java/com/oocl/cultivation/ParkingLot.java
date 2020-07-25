@@ -18,6 +18,6 @@ public class ParkingLot {
     }
 
     public Car fetch(CarTicket carTicket) {
-        return this.carTicketCarMap.get(carTicket);
+        return this.carTicketCarMap.remove(carTicket);
     }
 }

@@ -84,7 +84,8 @@ public class ParkingLotTest {
         // when
         CarTicket carTicket = parkingLot.park(firstCar);
         Car SecondCar = parkingLot.fetch(carTicket);
+        Car thirdCar = parkingLot.fetch(carTicket);
         // then
-        assertNull(SecondCar);
+        assertNull(thirdCar);
     }
 }
