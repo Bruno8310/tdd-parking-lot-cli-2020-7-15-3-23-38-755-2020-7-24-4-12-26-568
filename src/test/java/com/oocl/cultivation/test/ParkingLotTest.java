@@ -1,12 +1,12 @@
 package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
 
@@ -45,7 +45,7 @@ public class ParkingLotTest {
         // when
         int size = parkingBoy.parkCar(car);
         // then
-        assertEquals(parkingBoy.getCars().size(), size);
+        Assertions.assertEquals(parkingBoy.getCars().size(), size);
 
     }
 
@@ -59,7 +59,7 @@ public class ParkingLotTest {
         Car car = parkingBoy.fetch(carTicket);
 
         // then
-        assertEquals(parkingBoy.getParkingLot().fetch(carTicket), car);
+        Assertions.assertEquals(parkingBoy.getParkingLot().fetch(carTicket), car);
     }
 
     @Test
@@ -72,6 +72,19 @@ public class ParkingLotTest {
         Car car = parkingBoy.fetch(carTicket);
 
         // then
-        assertEquals(null, car);
+        assertNull(car);
+    }
+
+    @Test
+    void should_return_no_car_when_fetch_car_give_is_used_carTicket() {
+        // given
+        ParkingLot parkingLot = new ParkingLot();
+        Car firstCar = new Car();
+
+        // when
+        CarTicket carTicket = parkingLot.park(firstCar);
+        Car SecondCar = parkingLot.fetch(carTicket);
+        // then
+        assertNull(SecondCar);
     }
 }
