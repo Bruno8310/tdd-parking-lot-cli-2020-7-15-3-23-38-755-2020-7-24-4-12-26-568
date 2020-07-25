@@ -63,5 +63,6 @@ public class ParkingBoy {
     }
 
     public void fetch() {
+        this.setResponseMessage("Please provide your parking ticket.");
     }
 }
