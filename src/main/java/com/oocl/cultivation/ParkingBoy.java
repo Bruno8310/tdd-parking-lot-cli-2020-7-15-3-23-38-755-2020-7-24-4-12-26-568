@@ -8,6 +8,8 @@ public class ParkingBoy {
 
     private final ArrayList<Car> cars;
 
+    private String responseMessage;
+
     public ParkingBoy() {
         this.cars = new ArrayList<>();
         this.parkingLot = new ParkingLot();
@@ -46,5 +48,9 @@ public class ParkingBoy {
         Car car = this.getParkingLot().getCarTicketCarMap().get(carTicket);
         this.getParkingLot().getCarTicketCarMap().remove(carTicket);
         return car;
+    }
+
+    public String getResponseMessage() {
+        return null;
     }
 }

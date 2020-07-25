@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
 
@@ -105,15 +104,16 @@ public class ParkingLotTest {
         assertNull(carTicket);
     }
 
-//    @Test
-//    void should_get_message_when_parking_car_give_wrong_ticket() {
-//        // give
-//        ParkingBoy parkingBoy = new ParkingBoy();
-//
-//        // when
-//        Car car = parkingBoy.fetch();
-//
-//        // then
-//        assertNull();
-//    }
+    @Test
+    void should_get_message_when_parking_car_give_wrong_ticket_or_used_ticket() {
+        // give
+        ParkingBoy parkingBoy = new ParkingBoy();
+        CarTicket carTicket = parkingBoy.park(new Car());
+        CarTicket wrongTicket = new CarTicket();
+
+        // when
+        Car car = parkingBoy.fetch(carTicket);
+        // then
+        assertEquals("Unrecognized parking ticket", parkingBoy.getResponseMessage());
+    }
 }
