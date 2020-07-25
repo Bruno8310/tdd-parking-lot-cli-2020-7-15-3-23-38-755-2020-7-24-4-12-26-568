@@ -63,13 +63,12 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_car_when_custome_get_car_give_wrong_carTicket() {
+    void should_return_no_car_when_parkingBoy_get_car_give_wrong_carTicket() {
         // given
-        Customer customer = new Customer();
         ParkingBoy parkingBoy = new ParkingBoy();
 
         // when
-        CarTicket carTicket = customer.supply();
+        CarTicket carTicket = null;
         Car car = parkingBoy.fetch(carTicket);
 
         // then
