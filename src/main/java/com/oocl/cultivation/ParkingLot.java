@@ -14,22 +14,15 @@ public class ParkingLot {
         this.capacity = 10;
     }
 
-    public CarTicket park(Car car) {
-        CarTicket carTicket = new CarTicket();
-        this.carTicketCarMap.put(carTicket, car);
-        return carTicket;
+    public Map<CarTicket, Car> getCarTicketCarMap() {
+        return carTicketCarMap;
     }
 
-    public Car fetch(CarTicket carTicket) {
-        return this.carTicketCarMap.remove(carTicket);
+    public int getCapacity() {
+        return capacity;
     }
 
-    public CarTicket judgeCapacityPark(Car car) {
-        if (this.carTicketCarMap.size() <= this.capacity) {
-           CarTicket carTicket = this.park(car);
-           this.capacity--;
-           return carTicket;
-        }
-        return null;
+    public void setCapacity() {
+        this.capacity -= 1;
     }
 }

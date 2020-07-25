@@ -21,15 +21,28 @@ public class ParkingBoy {
         return parkingLot;
     }
 
-    public int parkCar(Car car) {
-        this.cars.add(car);
+    public int parkCarGetCarsSize(Car car) {
+        this.getCars().add(car);
+        this.getParkingLot().getCarTicketCarMap().put(new CarTicket(), car);
+        return this.getCars().size();
+    }
 
-        this.parkingLot.carTicketCarMap.put(new CarTicket(), car);
+    public CarTicket park(Car car) {
+        CarTicket carTicket = new CarTicket();
+        this.getParkingLot().getCarTicketCarMap().put(carTicket, car);
+        return carTicket;
+    }
 
-        return this.cars.size();
+    public CarTicket judgeCapacityPark(Car car) {
+        if (this.getParkingLot().getCarTicketCarMap().size() <= this.getParkingLot().getCapacity()) {
+            CarTicket carTicket = this.park(car);
+            this.getParkingLot().setCapacity();
+            return carTicket;
+        }
+        return null;
     }
 
     public Car fetch(CarTicket carTicket) {
-        return this.parkingLot.carTicketCarMap.get(carTicket);
+        return this.getParkingLot().getCarTicketCarMap().remove(carTicket);
     }
 }
