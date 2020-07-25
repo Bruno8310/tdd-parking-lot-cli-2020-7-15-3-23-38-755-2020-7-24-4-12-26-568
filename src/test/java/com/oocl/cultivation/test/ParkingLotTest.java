@@ -84,7 +84,8 @@ public class ParkingLotTest {
 
         // when
         CarTicket carTicket = parkingBoy.park(firstCar);
-        Car SecondCar = parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(carTicket);
+
         Car thirdCar = parkingBoy.fetch(carTicket);
         // then
         assertNull(thirdCar);
@@ -108,12 +109,15 @@ public class ParkingLotTest {
     void should_get_message_when_parking_car_give_wrong_ticket_or_used_ticket() {
         // give
         ParkingBoy parkingBoy = new ParkingBoy();
-        CarTicket carTicket = parkingBoy.park(new Car());
+        CarTicket carTicket = parkingBoy.judgeCapacityPark(new Car());
         CarTicket wrongTicket = new CarTicket();
 
         // when
-        Car car = parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(carTicket);
+        parkingBoy.fetch(wrongTicket);
         // then
-        assertEquals("Unrecognized parking ticket", parkingBoy.getResponseMessage());
+        assertEquals("Unrecognized parking ticket.", parkingBoy.getResponseMessage());
+        assertEquals("Unrecognized parking ticket.", parkingBoy.getResponseMessage());
     }
 }

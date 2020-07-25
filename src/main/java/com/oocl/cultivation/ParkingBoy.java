@@ -45,12 +45,20 @@ public class ParkingBoy {
     }
 
     public Car fetch(CarTicket carTicket) {
-        Car car = this.getParkingLot().getCarTicketCarMap().get(carTicket);
-        this.getParkingLot().getCarTicketCarMap().remove(carTicket);
-        return car;
+        if (!carTicket.equals(null) && this.getParkingLot().getCarTicketCarMap().containsKey(carTicket)) {
+            Car car = this.getParkingLot().getCarTicketCarMap().get(carTicket);
+            this.getParkingLot().getCarTicketCarMap().remove(carTicket);
+            return car;
+        }
+        this.setResponseMessage("Unrecognized parking ticket.");
+        return null;
     }
 
     public String getResponseMessage() {
-        return null;
+        return this.responseMessage;
+    }
+
+    public void setResponseMessage(String responseMessage) {
+        this.responseMessage = responseMessage;
     }
 }
