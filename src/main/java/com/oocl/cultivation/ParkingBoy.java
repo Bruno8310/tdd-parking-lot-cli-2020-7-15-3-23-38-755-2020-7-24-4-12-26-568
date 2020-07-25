@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class ParkingBoy {
 
-    private ParkingLot parkingLot;
+    private final ParkingLot parkingLot;
 
-    private ArrayList<Car> cars;
+    private final ArrayList<Car> cars;
 
     public ParkingBoy() {
         this.cars = new ArrayList<>();
@@ -43,6 +43,8 @@ public class ParkingBoy {
     }
 
     public Car fetch(CarTicket carTicket) {
-        return this.getParkingLot().getCarTicketCarMap().remove(carTicket);
+        Car car = this.getParkingLot().getCarTicketCarMap().get(carTicket);
+        this.getParkingLot().getCarTicketCarMap().remove(carTicket);
+        return car;
     }
 }

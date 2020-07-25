@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ParkingLotTest {
 
@@ -100,8 +101,19 @@ public class ParkingLotTest {
             Car car = new Car();
             carTicket = parkingBoy.judgeCapacityPark(car);
         }
-
         // then
-            assertNull(carTicket);
+        assertNull(carTicket);
     }
+
+//    @Test
+//    void should_get_message_when_parking_car_give_wrong_ticket() {
+//        // give
+//        ParkingBoy parkingBoy = new ParkingBoy();
+//
+//        // when
+//        Car car = parkingBoy.fetch();
+//
+//        // then
+//        assertNull();
+//    }
 }
