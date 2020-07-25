@@ -41,6 +41,7 @@ public class ParkingBoy {
             this.getParkingLot().setCapacity();
             return carTicket;
         }
+        this.setResponseMessage("Not enough position.");
         return null;
     }
 
