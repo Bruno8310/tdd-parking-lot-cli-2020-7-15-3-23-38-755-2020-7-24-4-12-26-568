@@ -162,17 +162,18 @@ public class ParkingLotTest {
         // give
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         // when
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             smartParkingBoy.judgeCapacityPark(new Car());
         }
 
         ParkingLot firstParkingLot = smartParkingBoy.getParkingLotList().get(0);
         ParkingLot secondParkingLot = smartParkingBoy.getParkingLotList().get(1);
 
-        int firstCapacity = firstParkingLot.getCarTicketCarMap().size();
-        int secondCapacity = secondParkingLot.getCarTicketCarMap().size();
+        int firstParkingLotSize = firstParkingLot.getCarTicketCarMap().size();
+        int secondParkingLotSize  = secondParkingLot.getCarTicketCarMap().size();
         // then
-        assertEquals(0, firstCapacity);
+        assertEquals(2, firstParkingLotSize);
+        assertEquals(1, secondParkingLotSize);
     }
 
     @Test
@@ -181,12 +182,17 @@ public class ParkingLotTest {
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy();
 
         // when
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             superSmartParkingBoy.judgeCapacityPark(new Car());
         }
         ParkingLot firstParkingLot = superSmartParkingBoy.getParkingLotList().get(0);
         ParkingLot secondParkingLot = superSmartParkingBoy.getParkingLotList().get(1);
+
+        int firstParkingLotSize = firstParkingLot.getCarTicketCarMap().size();
+        int secondParkingLotSize  = secondParkingLot.getCarTicketCarMap().size();
+
         // then
-        assertEquals(1, firstParkingLot);
+        assertEquals(2, firstParkingLotSize);
+        assertEquals(1, secondParkingLotSize);
     }
 }

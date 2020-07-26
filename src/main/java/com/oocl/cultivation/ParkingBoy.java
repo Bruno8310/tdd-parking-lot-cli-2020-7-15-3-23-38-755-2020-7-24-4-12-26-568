@@ -53,7 +53,6 @@ public class ParkingBoy {
         this.responseMessage = responseMessage;
     }
 
-
     public CarTicket park(Car car) {
         CarTicket carTicket = new CarTicket();
         this.getParkingLot().getCarTicketCarMap().put(carTicket, car);
@@ -76,8 +75,6 @@ public class ParkingBoy {
             this.setResponseMessage("Not enough position.");
             return null;
         }
-
-
     }
 
     public Car fetch(CarTicket carTicket) {
@@ -89,8 +86,6 @@ public class ParkingBoy {
         this.setResponseMessage("Unrecognized parking ticket.");
         return null;
     }
-
-
 
     public void fetch() {
         this.setResponseMessage("Please provide your parking ticket.");
