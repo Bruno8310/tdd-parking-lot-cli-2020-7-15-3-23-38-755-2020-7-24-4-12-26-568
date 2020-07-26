@@ -161,16 +161,17 @@ public class ParkingLotTest {
     void should_park_cars_when_parkingLot_hava_max_position_give_parkingLot_list() {
         // give
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        // when
+        for (int i = 0; i < 2; i++) {
+            smartParkingBoy.judgeCapacityPark(new Car());
+        }
+
         ParkingLot firstParkingLot = smartParkingBoy.getParkingLotList().get(0);
         ParkingLot secondParkingLot = smartParkingBoy.getParkingLotList().get(1);
-        // when
-        for (int i = 0; i < 3; i++) {
-            firstParkingLot.judgeCapacityPark(new Car());
-            firstParkingLot.setCapacity();
-        }
-        int firstCapacity = firstParkingLot.getCapacity();
-        int secondCapacity = secondParkingLot.getCapacity();
+
+        int firstCapacity = firstParkingLot.getCarTicketCarMap().size();
+        int secondCapacity = secondParkingLot.getCarTicketCarMap().size();
         // then
-        assertEquals(true, secondCapacity > firstCapacity);
+        assertEquals(0, firstCapacity);
     }
 }

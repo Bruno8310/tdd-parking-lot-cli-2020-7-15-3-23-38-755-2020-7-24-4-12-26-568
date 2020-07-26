@@ -25,4 +25,5 @@ public class ParkingLot {
     public void setCapacity() {
          --this.capacity;
     }
+
 }

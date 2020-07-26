@@ -5,13 +5,13 @@ import java.util.List;
 
 public class ParkingBoy {
 
-    private final List<ParkingLot> parkingLotList;
+    protected List<ParkingLot> parkingLotList;
 
-    private ParkingLot parkingLot;
+    protected ParkingLot parkingLot;
 
-    private final ArrayList<Car> cars;
+    protected ArrayList<Car> cars;
 
-    private String responseMessage;
+    protected String responseMessage;
 
     public ParkingBoy() {
         this.cars = new ArrayList<>();
