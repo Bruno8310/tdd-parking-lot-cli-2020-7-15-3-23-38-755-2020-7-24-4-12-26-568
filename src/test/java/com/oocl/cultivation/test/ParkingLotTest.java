@@ -174,4 +174,19 @@ public class ParkingLotTest {
         // then
         assertEquals(0, firstCapacity);
     }
+
+    @Test
+    void should_park_cars_when_parkingLot_hava_large_position_rate_give_parkingLot_list() {
+        // give
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy();
+
+        // when
+        for (int i = 0; i < 2; i++) {
+            superSmartParkingBoy.judgeCapacityPark(new Car());
+        }
+        ParkingLot firstParkingLot = superSmartParkingBoy.getParkingLotList().get(0);
+        ParkingLot secondParkingLot = superSmartParkingBoy.getParkingLotList().get(1);
+        // then
+        assertEquals(1, firstParkingLot);
+    }
 }

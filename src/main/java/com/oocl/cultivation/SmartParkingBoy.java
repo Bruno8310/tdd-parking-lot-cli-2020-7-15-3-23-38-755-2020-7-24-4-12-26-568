@@ -22,6 +22,7 @@ public class SmartParkingBoy extends ParkingBoy {
         ParkingLot firstparkingLot = this.getParkingLotList().get(0);
         if (firstparkingLot.getCapacity() > 0) {
             CarTicket carTicket = this.park(car);
+            firstparkingLot.setCapacity();
             return carTicket;
         } else {
             this.setResponseMessage("Not enough position.");
