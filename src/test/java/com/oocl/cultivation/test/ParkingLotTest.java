@@ -144,4 +144,20 @@ public class ParkingLotTest {
         // then
         assertEquals("Not enough position.", parkingBoy.getResponseMessage());
     }
+
+    @Test
+    void should_park_multiple_cars_when_in_order_parking_give_parkingLot_list() {
+        // give
+        ParkingBoy parkingBoy = new ParkingBoy();
+        CarTicket carTicket = Mockito.mock(CarTicket.class);
+
+        // when
+        for (int i = 0; i < 11; i++) {
+            Car car = new Car();
+            carTicket = parkingBoy.judgeCapacityPark(car);
+        }
+
+        // then
+        assertNotNull(carTicket);
+    }
 }

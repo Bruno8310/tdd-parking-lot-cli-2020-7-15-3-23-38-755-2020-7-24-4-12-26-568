@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class ParkingBoy {
 
-    private final ParkingLot parkingLot;
+
+    private ParkingLot parkingLot;
 
     private final ArrayList<Car> cars;
 
@@ -46,7 +47,7 @@ public class ParkingBoy {
     }
 
     public Car fetch(CarTicket carTicket) {
-        if (!carTicket.equals(null) && this.getParkingLot().getCarTicketCarMap().containsKey(carTicket)) {
+        if (carTicket != null && this.getParkingLot().getCarTicketCarMap().containsKey(carTicket)) {
             Car car = this.getParkingLot().getCarTicketCarMap().get(carTicket);
             this.getParkingLot().getCarTicketCarMap().remove(carTicket);
             return car;
