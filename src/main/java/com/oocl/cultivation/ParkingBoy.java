@@ -1,9 +1,11 @@
 package com.oocl.cultivation;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParkingBoy {
 
+    private final List<ParkingLot> parkingLotList;
 
     private ParkingLot parkingLot;
 
@@ -13,7 +15,17 @@ public class ParkingBoy {
 
     public ParkingBoy() {
         this.cars = new ArrayList<>();
-        this.parkingLot = new ParkingLot();
+        this.parkingLotList = new ArrayList<>();
+        for (int i = 0; i < 1; i++) {
+            this.getParkingLotList().add(new ParkingLot());
+        }
+        this.parkingLot = this.parkingLotList.get(0);
+    }
+
+    public int parkCarGetCarsSize(Car car) {
+        this.getCars().add(car);
+        this.getParkingLot().getCarTicketCarMap().put(new CarTicket(), car);
+        return this.getCars().size();
     }
 
     public ArrayList<Car> getCars() {
@@ -24,11 +36,23 @@ public class ParkingBoy {
         return parkingLot;
     }
 
-    public int parkCarGetCarsSize(Car car) {
-        this.getCars().add(car);
-        this.getParkingLot().getCarTicketCarMap().put(new CarTicket(), car);
-        return this.getCars().size();
+    public void setParkingLot(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
     }
+
+
+    public List<ParkingLot> getParkingLotList() {
+        return parkingLotList;
+    }
+
+    public String getResponseMessage() {
+        return this.responseMessage;
+    }
+
+    public void setResponseMessage(String responseMessage) {
+        this.responseMessage = responseMessage;
+    }
+
 
     public CarTicket park(Car car) {
         CarTicket carTicket = new CarTicket();
@@ -37,13 +61,23 @@ public class ParkingBoy {
     }
 
     public CarTicket judgeCapacityPark(Car car) {
-        if (this.getParkingLot().getCapacity() > 0) {
-            CarTicket carTicket = this.park(car);
-            this.getParkingLot().setCapacity();
-            return carTicket;
+        boolean isFull = true;
+        for (ParkingLot lot : parkingLotList) {
+            if (lot.getCarTicketCarMap().size() < lot.getCapacity()) {
+                this.setParkingLot(lot);
+                isFull = false;
+                break;
+            }
         }
-        this.setResponseMessage("Not enough position.");
-        return null;
+        if (!isFull) {
+            CarTicket carTicket = this.park(car);
+            return carTicket;
+        } else {
+            this.setResponseMessage("Not enough position.");
+            return null;
+        }
+
+
     }
 
     public Car fetch(CarTicket carTicket) {
@@ -56,13 +90,7 @@ public class ParkingBoy {
         return null;
     }
 
-    public String getResponseMessage() {
-        return this.responseMessage;
-    }
 
-    public void setResponseMessage(String responseMessage) {
-        this.responseMessage = responseMessage;
-    }
 
     public void fetch() {
         this.setResponseMessage("Please provide your parking ticket.");

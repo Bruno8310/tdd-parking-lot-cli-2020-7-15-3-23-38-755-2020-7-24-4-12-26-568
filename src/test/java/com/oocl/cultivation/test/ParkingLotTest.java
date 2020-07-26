@@ -150,14 +150,12 @@ public class ParkingLotTest {
         // give
         ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket carTicket = Mockito.mock(CarTicket.class);
-
         // when
         for (int i = 0; i < 11; i++) {
             Car car = new Car();
             carTicket = parkingBoy.judgeCapacityPark(car);
         }
-
         // then
-        assertNotNull(carTicket);
+        assertNull(carTicket);
     }
 }
