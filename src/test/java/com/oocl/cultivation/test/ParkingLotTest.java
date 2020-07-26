@@ -1,8 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingBoy;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -97,7 +95,7 @@ public class ParkingLotTest {
         ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket carTicket = Mockito.mock(CarTicket.class);
         // when
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 21; i++) {
             Car car = new Car();
             carTicket = parkingBoy.judgeCapacityPark(car);
         }
@@ -137,7 +135,7 @@ public class ParkingLotTest {
         ParkingBoy parkingBoy = new ParkingBoy();
 
         // when
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 21; i++) {
             Car car = new Car();
             parkingBoy.judgeCapacityPark(car);
         }
@@ -151,11 +149,28 @@ public class ParkingLotTest {
         ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket carTicket = Mockito.mock(CarTicket.class);
         // when
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 21; i++) {
             Car car = new Car();
             carTicket = parkingBoy.judgeCapacityPark(car);
         }
         // then
         assertNull(carTicket);
+    }
+
+    @Test
+    void should_park_cars_when_parkingLot_hava_max_position_give_parkingLot_list() {
+        // give
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingLot firstParkingLot = smartParkingBoy.getParkingLotList().get(0);
+        ParkingLot secondParkingLot = smartParkingBoy.getParkingLotList().get(1);
+        // when
+        for (int i = 0; i < 3; i++) {
+            firstParkingLot.judgeCapacityPark(new Car());
+            firstParkingLot.setCapacity();
+        }
+        int firstCapacity = firstParkingLot.getCapacity();
+        int secondCapacity = secondParkingLot.getCapacity();
+        // then
+        assertEquals(true, secondCapacity > firstCapacity);
     }
 }

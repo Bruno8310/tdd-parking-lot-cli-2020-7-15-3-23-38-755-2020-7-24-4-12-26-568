@@ -16,7 +16,7 @@ public class ParkingBoy {
     public ParkingBoy() {
         this.cars = new ArrayList<>();
         this.parkingLotList = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             this.getParkingLotList().add(new ParkingLot());
         }
         this.parkingLot = this.parkingLotList.get(0);
