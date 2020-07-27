@@ -43,7 +43,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_park_multiCar_when_park_by_packingBoy_give_car() {
+    void should_return_right_car_when_park_multiple_car_give_mutiple_carTicket() {
         // given
         Car carA = new Car();
         Car carB = new Car();
