@@ -7,29 +7,12 @@ public class ParkingBoy {
 
     protected List<ParkingLot> parkingLotList;
 
-    protected ParkingLot parkingLot;
-
-    protected ArrayList<Car> cars;
+    protected ParkingLot parkingLot ;
 
     protected String responseMessage;
 
     public ParkingBoy() {
-        this.cars = new ArrayList<>();
         this.parkingLotList = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            this.getParkingLotList().add(new ParkingLot());
-        }
-        this.parkingLot = this.parkingLotList.get(0);
-    }
-
-    public int parkCarGetCarsSize(Car car) {
-        this.getCars().add(car);
-        this.getParkingLot().getCarTicketCarMap().put(new CarTicket(), car);
-        return this.getCars().size();
-    }
-
-    public ArrayList<Car> getCars() {
-        return cars;
     }
 
     public ParkingLot getParkingLot() {

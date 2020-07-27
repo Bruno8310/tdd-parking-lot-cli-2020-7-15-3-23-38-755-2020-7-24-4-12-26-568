@@ -22,6 +22,7 @@ public class ParkingLot {
         return capacity;
     }
 
+    // TODO
     public void setCapacity() {
          --this.capacity;
     }

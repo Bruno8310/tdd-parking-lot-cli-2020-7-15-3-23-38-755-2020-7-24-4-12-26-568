@@ -12,6 +12,7 @@ public class SmartParkingBoy extends ParkingBoy {
 
     @Override
     public CarTicket judgeCapacityPark(Car car) {
+
         Collections.sort(this.getParkingLotList(), new Comparator<ParkingLot>() {
             @Override
             public int compare(ParkingLot o1, ParkingLot o2) {

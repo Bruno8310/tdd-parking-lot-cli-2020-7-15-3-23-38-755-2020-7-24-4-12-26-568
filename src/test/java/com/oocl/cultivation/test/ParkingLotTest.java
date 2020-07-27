@@ -39,17 +39,20 @@ public class ParkingLotTest {
     @Test
     void should_park_multiCar_when_park_by_packingBoy_give_car() {
         // given
-        Car car = new Car();
+        Car carA = new Car();
+        Car carB = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
+
         // when
-        int size = parkingBoy.parkCarGetCarsSize(car);
+
         // then
-        Assertions.assertEquals(parkingBoy.getCars().size(), size);
+
 
     }
 
     @Test
     void should_return_car_when_fetch_car_by_carTicket_give_carTicket() {
+        // TODO
         // given
         CarTicket carTicket = new CarTicket();
         ParkingBoy parkingBoy = new ParkingBoy();
@@ -91,6 +94,9 @@ public class ParkingLotTest {
 
     @Test
     void should_judge_parkingLotCapacity_when_parkingBoy_park_give_car() {
+        // TODO The parking lot has a capacity (the default capacity of a parking lot is 10).
+        //   If there is no position, then the user cannot park the car into it. Thus (s)he will not get any ticket.
+
         // give
         ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket carTicket = Mockito.mock(CarTicket.class);
@@ -148,6 +154,9 @@ public class ParkingLotTest {
         // give
         ParkingBoy parkingBoy = new ParkingBoy();
         CarTicket carTicket = Mockito.mock(CarTicket.class);
+        for (int i = 0; i < 2; i++) {
+            parkingBoy.getParkingLotList().add(new ParkingLot());
+        }
         // when
         for (int i = 0; i < 21; i++) {
             Car car = new Car();
@@ -157,42 +166,4 @@ public class ParkingLotTest {
         assertNull(carTicket);
     }
 
-    @Test
-    void should_park_cars_when_parkingLot_hava_max_position_give_parkingLot_list() {
-        // give
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
-        // when
-        for (int i = 0; i < 3; i++) {
-            smartParkingBoy.judgeCapacityPark(new Car());
-        }
-
-        ParkingLot firstParkingLot = smartParkingBoy.getParkingLotList().get(0);
-        ParkingLot secondParkingLot = smartParkingBoy.getParkingLotList().get(1);
-
-        int firstParkingLotSize = firstParkingLot.getCarTicketCarMap().size();
-        int secondParkingLotSize  = secondParkingLot.getCarTicketCarMap().size();
-        // then
-        assertEquals(2, firstParkingLotSize);
-        assertEquals(1, secondParkingLotSize);
-    }
-
-    @Test
-    void should_park_cars_when_parkingLot_hava_large_position_rate_give_parkingLot_list() {
-        // give
-        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy();
-
-        // when
-        for (int i = 0; i < 3; i++) {
-            superSmartParkingBoy.judgeCapacityPark(new Car());
-        }
-        ParkingLot firstParkingLot = superSmartParkingBoy.getParkingLotList().get(0);
-        ParkingLot secondParkingLot = superSmartParkingBoy.getParkingLotList().get(1);
-
-        int firstParkingLotSize = firstParkingLot.getCarTicketCarMap().size();
-        int secondParkingLotSize  = secondParkingLot.getCarTicketCarMap().size();
-
-        // then
-        assertEquals(2, firstParkingLotSize);
-        assertEquals(1, secondParkingLotSize);
-    }
 }
