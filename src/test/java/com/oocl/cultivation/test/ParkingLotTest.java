@@ -11,20 +11,6 @@ public class ParkingLotTest {
 
 
 
-    @Test
-    void should_return_no_car_when_fetch_car_give_is_used_carTicket() {
-        // given
-        ParkingBoy parkingBoy = new ParkingBoy();
-        Car firstCar = new Car();
-
-        // when
-        CarTicket carTicket = parkingBoy.park(firstCar);
-        parkingBoy.fetch(carTicket);
-
-        Car thirdCar = parkingBoy.fetch(carTicket);
-        // then
-        assertNull(thirdCar);
-    }
 
     @Test
     void should_judge_parkingLotCapacity_when_parkingBoy_park_give_car() {

@@ -60,4 +60,23 @@ public class ParkingBoyTest {
         assertNotEquals(carA, parkingBoy.fetch(carTicketB));
         assertNotEquals(carB, parkingBoy.fetch(carTicketA));
     }
+
+    @Test
+    void should_return_no_car_when_fetch_car_give_is_used_carTicket() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car firstCar = new Car();
+        for (int i = 0; i < 2; i++) {
+            parkingBoy.getParkingLotList().add(new ParkingLot());
+        }
+        parkingBoy.setParkingLot(parkingBoy.getParkingLotList().get(0));
+
+        // when
+        CarTicket carTicket = parkingBoy.park(firstCar);
+        parkingBoy.fetch(carTicket);
+
+        Car thirdCar = parkingBoy.fetch(carTicket);
+        // then
+        assertNull(thirdCar);
+    }
 }
