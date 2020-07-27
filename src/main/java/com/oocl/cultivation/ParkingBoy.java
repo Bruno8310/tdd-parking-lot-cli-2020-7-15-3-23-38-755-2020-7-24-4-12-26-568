@@ -5,10 +5,17 @@ import java.util.List;
 
 public class ParkingBoy {
 
+    List<ParkingLot> parkingLotList;
+
     ParkingLot parkingLot;
 
     public ParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
+    }
+
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLotList = parkingLots;
+        this.parkingLot = this.parkingLotList.get(0);
     }
 
     public ParkingLot getParkingLot() {
@@ -27,8 +34,15 @@ public class ParkingBoy {
         return this.parkingLot.fetch();
     }
 
-
     public String getMessage() {
         return this.parkingLot.getMessage();
+    }
+
+    public List<ParkingLot> getParkingLotList() {
+        return parkingLotList;
+    }
+
+    public void setParkingLotList(List<ParkingLot> parkingLotList) {
+        this.parkingLotList = parkingLotList;
     }
 }

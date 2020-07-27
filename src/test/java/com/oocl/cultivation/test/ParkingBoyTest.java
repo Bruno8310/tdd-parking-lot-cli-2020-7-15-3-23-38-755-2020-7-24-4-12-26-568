@@ -6,6 +6,9 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingBoyTest {
@@ -129,6 +132,23 @@ public class ParkingBoyTest {
         CarTicket carTicket = parkingBoy.park(new Car());
         // then
         assertEquals("Not enough position.", parkingBoy.getMessage());
-
     }
+
+    @Test
+    void should_park_to_second_parkingLot_when_cars_is_full_frist_parkingLot_capacity_give_12_cars() {
+        // given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+                parkingLots.add(new ParkingLot());
+        }
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+        // when
+        for (int j = 0; j < 12; j++) {
+            parkingBoy.park(new Car());
+        }
+        // then
+        assertEquals(1, parkingBoy.getParkingLot().getCarTicketCarMap().size());
+    }
+
 }
