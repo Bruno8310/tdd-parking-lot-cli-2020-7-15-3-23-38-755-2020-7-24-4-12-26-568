@@ -22,4 +22,12 @@ public class ParkingBoy {
     public Car fetch(CarTicket carTicket) {
         return this.parkingLot.fetch(carTicket);
     }
+
+    public String fetch() {
+        return "";
+    }
+
+    public String getMessage() {
+        this.parkingLot.getMessage();
+    }
 }
