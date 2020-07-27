@@ -63,6 +63,20 @@ public class ParkingBoyTest {
     }
 
     @Test
+    void should_get_message_when_parking_car_give_wrong_ticket() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Car car = new Car();
+
+        // when
+        parkingBoy.park(car);
+        CarTicket carTicket = new CarTicket();
+        Car car1 = parkingBoy.fetch(carTicket);
+        // then
+        assertNull(car1);
+    }
+
+    @Test
     void should_return_no_ticket_when_parkingLot_is_full_give_car() {
         // given
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
@@ -75,10 +89,6 @@ public class ParkingBoyTest {
         assertNull(carTicket);
     }
 
-    @Test
-    void should_get_message_when_parking_car_give_wrong_ticket_or_used_ticket() {
-
-    }
 
     @Test
     void should_get_message_when_parking_car_give_null_carTicket() {
