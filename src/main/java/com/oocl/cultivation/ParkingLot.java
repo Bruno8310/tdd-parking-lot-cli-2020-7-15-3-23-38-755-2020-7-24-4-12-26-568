@@ -23,6 +23,7 @@ public class ParkingLot {
             this.carTicketCarMap.put(carTicket, car);
             return carTicket;
         }
+        this.setMessage("Not enough position.");
         return null;
     }
 
