@@ -29,7 +29,6 @@ public class ParkingBoyTest {
 
         // when
         Car carB = parkingBoy.fetch(carTicket);
-
         // then
         assertEquals(carA, carB);
 
@@ -37,6 +36,17 @@ public class ParkingBoyTest {
 
     @Test
     void should_return_right_car_when_park_multiple_car_give_mutiple_carTicket() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Car carA = new Car();
+        Car carB = new Car();
+
+        // when
+        CarTicket carTicketA = parkingBoy.park(carA);
+        CarTicket carTicketB = parkingBoy.park(carB);
+        // then
+        assertNotEquals(carA, parkingBoy.fetch(carTicketB));
+        assertNotEquals(carB, parkingBoy.fetch(carTicketA));
 
     }
 

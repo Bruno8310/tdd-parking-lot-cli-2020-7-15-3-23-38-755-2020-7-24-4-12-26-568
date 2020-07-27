@@ -5,13 +5,20 @@ import java.util.Map;
 
 public class ParkingLot {
 
+    Map<CarTicket, Car> carTicketCarMap;
 
+    public ParkingLot() {
+        this.carTicketCarMap = new HashMap<>();
+    }
 
     public CarTicket park(Car car) {
-        return new CarTicket();
+        CarTicket carTicket = new CarTicket();
+        this.carTicketCarMap.put(carTicket, car);
+        return carTicket;
     }
 
     public Car fetch(CarTicket carTicket) {
-        return null;
+        Car car = this.carTicketCarMap.remove(carTicket);
+        return car;
     }
 }
