@@ -22,6 +22,16 @@ public class ParkingBoyTest {
 
     @Test
     void should_fetch_car_when_fetch_from_packingLot_give_carTicket() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Car carA = new Car();
+        CarTicket carTicket = parkingBoy.park(carA);
+
+        // when
+        Car carB = parkingBoy.fetch(carTicket);
+
+        // then
+        assertEquals(carA, carB);
 
     }
 

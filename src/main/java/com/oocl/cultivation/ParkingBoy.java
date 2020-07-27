@@ -18,4 +18,8 @@ public class ParkingBoy {
     public CarTicket park(Car car) {
        return this.parkingLot.park(car);
     }
+
+    public Car fetch(CarTicket carTicket) {
+        return this.parkingLot.fetch(carTicket);
+    }
 }
