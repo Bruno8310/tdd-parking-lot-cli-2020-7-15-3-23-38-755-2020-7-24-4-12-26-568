@@ -9,18 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
 
-    @Test
-    void should_return_ticket_when_park_give_car() {
-        // given
-        Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy();
-
-        // when
-        CarTicket carTicket = parkingBoy.park(car);
-
-        // then
-        assertNotNull(carTicket);
-    }
 
     @Test
     void should_fetch_car_when_fetch_from_packingLot_give_carTicket() {
