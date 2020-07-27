@@ -34,8 +34,12 @@ public class ParkingLot {
         return null;
     }
 
-    public String getMessage() {
+    public Car fetch() {
         this.setMessage("Please provide your parking ticket.");
+        return null;
+    }
+
+    public String getMessage() {
         return message;
     }
 

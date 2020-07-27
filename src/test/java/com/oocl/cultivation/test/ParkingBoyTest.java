@@ -96,13 +96,14 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
 
         // when
-        String message = parkingBoy.fetch();
+        parkingBoy.fetch();
         // then
-        assertEquals("Please provide your parking ticket.", message);
+        assertEquals("Please provide your parking ticket.", parkingBoy.getMessage());
     }
 
     @Test
     void should_get_message_when_parking_car_give_wrong_carTicket() {
+
 
     }
 
