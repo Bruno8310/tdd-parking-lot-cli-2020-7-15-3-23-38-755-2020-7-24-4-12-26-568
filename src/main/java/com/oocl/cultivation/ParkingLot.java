@@ -7,7 +7,7 @@ public class ParkingLot {
 
     Map<CarTicket, Car> carTicketCarMap;
 
-    double capacity;
+    int capacity;
 
     String message;
 
@@ -52,7 +52,7 @@ public class ParkingLot {
         return carTicketCarMap;
     }
 
-    public double gerCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 }

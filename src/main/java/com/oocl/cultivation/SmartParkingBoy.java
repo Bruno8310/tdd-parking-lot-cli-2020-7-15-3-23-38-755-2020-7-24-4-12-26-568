@@ -22,7 +22,7 @@ public class SmartParkingBoy extends ParkingBoy {
         });
         boolean isFull = true;
         for (ParkingLot lot: parkingLotList) {
-            if (lot.getCarTicketCarMap().size() < lot.gerCapacity()) {
+            if (lot.getCarTicketCarMap().size() < lot.getCapacity()) {
                 this.setParkingLot(lot);
                 isFull = false;
                 break;
