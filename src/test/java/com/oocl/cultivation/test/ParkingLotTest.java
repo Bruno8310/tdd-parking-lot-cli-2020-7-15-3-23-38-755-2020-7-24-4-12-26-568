@@ -10,18 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ParkingLotTest {
 
 
-    @Test
-    void should_return_no_car_when_parkingBoy_get_car_give_wrong_carTicket() {
-        // given
-        ParkingBoy parkingBoy = new ParkingBoy();
-
-        // when
-        CarTicket carTicket = null;
-        Car car = parkingBoy.fetch(carTicket);
-
-        // then
-        assertNull(car);
-    }
 
     @Test
     void should_return_no_car_when_fetch_car_give_is_used_carTicket() {
