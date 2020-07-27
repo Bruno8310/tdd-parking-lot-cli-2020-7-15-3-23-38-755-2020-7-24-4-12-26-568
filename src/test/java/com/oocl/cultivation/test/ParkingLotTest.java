@@ -12,19 +12,6 @@ public class ParkingLotTest {
 
 
 
-    @Test
-    void should_park_multiCar_when_park_by_packingBoy_give_car() {
-        // given
-        Car carA = new Car();
-        Car carB = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy();
-
-        // when
-
-        // then
-
-
-    }
 
     @Test
     void should_return_car_when_fetch_car_by_carTicket_give_carTicket() {
