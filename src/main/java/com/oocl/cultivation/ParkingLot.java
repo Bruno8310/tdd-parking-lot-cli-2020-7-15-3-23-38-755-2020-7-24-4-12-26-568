@@ -17,6 +17,7 @@ public class ParkingLot {
     public CarTicket park(Car car) {
         CarTicket carTicket = new CarTicket();
         if (this.carTicketCarMap.size() < this.capacity) {
+
             this.carTicketCarMap.put(carTicket, car);
             return carTicket;
         }
@@ -24,7 +25,10 @@ public class ParkingLot {
     }
 
     public Car fetch(CarTicket carTicket) {
-        Car car = this.carTicketCarMap.remove(carTicket);
-        return car;
+        if (carTicket != null && this.carTicketCarMap.containsKey(carTicket)) {
+            Car car = this.carTicketCarMap.remove(carTicket);
+            return car;
+        }
+        return null;
     }
 }
