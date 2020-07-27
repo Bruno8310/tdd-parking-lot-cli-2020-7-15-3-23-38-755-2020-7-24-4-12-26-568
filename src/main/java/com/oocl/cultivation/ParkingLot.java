@@ -40,6 +40,7 @@ public class ParkingLot {
         return null;
     }
 
+
     public String getMessage() {
         return message;
     }

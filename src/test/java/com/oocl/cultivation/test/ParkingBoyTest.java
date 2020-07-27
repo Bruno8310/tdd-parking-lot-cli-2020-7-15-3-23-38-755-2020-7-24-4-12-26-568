@@ -119,6 +119,16 @@ public class ParkingBoyTest {
 
     @Test
     void should_get_message_when_parking_car_and_parkingLot_is_full_give_car() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.park(new Car());
+        }
+
+        // when
+        CarTicket carTicket = parkingBoy.park(new Car());
+        // then
+        assertEquals("Not enough position.", parkingBoy.getMessage());
 
     }
 }
