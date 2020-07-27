@@ -52,6 +52,13 @@ public class ParkingBoyTest {
 
     @Test
     void should_return_no_car_when_fetch_car_give_is_used_carTicket() {
-
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Car car = new Car();
+        // when
+        CarTicket carTicket = parkingBoy.park(car);
+        Car car1 = parkingBoy.fetch(carTicket);
+        Car car2 = parkingBoy.fetch(carTicket);
+        assertNotEquals(car1, car2);
     }
 }
