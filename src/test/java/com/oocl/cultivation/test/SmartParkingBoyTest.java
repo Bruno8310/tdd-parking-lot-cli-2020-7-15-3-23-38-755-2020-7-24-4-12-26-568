@@ -25,6 +25,7 @@ public class SmartParkingBoyTest {
             smartParkingBoy.park(new Car());
         }
         // then
-        assertEquals(1, smartParkingBoy.getParkingLot().getCarTicketCarMap().size());
+        assertEquals(2, smartParkingBoy.getParkingLotList().get(0).getCarTicketCarMap().size());
+        assertEquals(1, smartParkingBoy.getParkingLotList().get(1).getCarTicketCarMap().size());
     }
 }

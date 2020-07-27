@@ -37,7 +37,7 @@ public class ParkingBoy {
        return null;
 }
 
-    private void setParkingLot(ParkingLot lot) {
+    public void setParkingLot(ParkingLot lot) {
         this.parkingLot = lot;
     }
 

@@ -14,6 +14,23 @@ public class SmartParkingBoy extends ParkingBoy {
 
     @Override
     public CarTicket park(Car car) {
-        return super.park(car);
+        Collections.sort(this.getParkingLotList(), new Comparator<ParkingLot>() {
+            @Override
+            public int compare(ParkingLot o1, ParkingLot o2) {
+                return o1.getCarTicketCarMap().size() - o2.getCarTicketCarMap().size();
+            }
+        });
+        boolean isFull = true;
+        for (ParkingLot lot: parkingLotList) {
+            if (lot.getCarTicketCarMap().size() < lot.gerCapacity()) {
+                this.setParkingLot(lot);
+                isFull = false;
+                break;
+            }
+        }
+        if (!isFull) {
+            return this.parkingLot.park(car);
+        }
+        return null;
     }
 }
