@@ -7,14 +7,20 @@ public class ParkingLot {
 
     Map<CarTicket, Car> carTicketCarMap;
 
+    int capacity;
+
     public ParkingLot() {
         this.carTicketCarMap = new HashMap<>();
+        this.capacity = 10;
     }
 
     public CarTicket park(Car car) {
         CarTicket carTicket = new CarTicket();
-        this.carTicketCarMap.put(carTicket, car);
-        return carTicket;
+        if (this.carTicketCarMap.size() < this.capacity) {
+            this.carTicketCarMap.put(carTicket, car);
+            return carTicket;
+        }
+        return null;
     }
 
     public Car fetch(CarTicket carTicket) {
