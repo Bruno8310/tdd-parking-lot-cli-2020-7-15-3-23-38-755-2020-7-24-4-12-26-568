@@ -61,4 +61,28 @@ public class ParkingBoyTest {
         Car car2 = parkingBoy.fetch(carTicket);
         assertNotEquals(car1, car2);
     }
+
+    @Test
+    void should_return_no_ticket_when_parkingLot_is_full_give_car() {
+
+    }
+
+    @Test
+    void should_get_message_when_parking_car_give_wrong_ticket_or_used_ticket() {
+
+    }
+
+    @Test
+    void should_get_message_when_parking_car_give_null_carTicket() {
+
+    }
+
+    @Test
+    void should_get_message_when_parking_car_give_without_position() {
+
+    }
+
+    @Test
+    void should_park_multiple_cars_when_in_order_parking_give_parkingLot_list() {
+    }
 }
