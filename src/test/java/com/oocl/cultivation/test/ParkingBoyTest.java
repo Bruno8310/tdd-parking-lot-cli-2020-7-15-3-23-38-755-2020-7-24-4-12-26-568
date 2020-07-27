@@ -92,15 +92,21 @@ public class ParkingBoyTest {
 
     @Test
     void should_get_message_when_parking_car_give_null_carTicket() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+
+        // when
+        parkingBoy.park();
+        // then
+    }
+
+    @Test
+    void should_get_message_when_parking_car_give_wrong_carTicket() {
 
     }
 
     @Test
-    void should_get_message_when_parking_car_give_without_position() {
+    void should_get_message_when_parking_car_and_parkingLot_is_full_give_car() {
 
-    }
-
-    @Test
-    void should_park_multiple_cars_when_in_order_parking_give_parkingLot_list() {
     }
 }

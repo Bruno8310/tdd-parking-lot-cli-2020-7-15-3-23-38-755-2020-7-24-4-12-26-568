@@ -9,6 +9,8 @@ public class ParkingLot {
 
     int capacity;
 
+    String message;
+
     public ParkingLot() {
         this.carTicketCarMap = new HashMap<>();
         this.capacity = 10;
