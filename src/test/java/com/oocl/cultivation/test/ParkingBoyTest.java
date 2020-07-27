@@ -103,7 +103,17 @@ public class ParkingBoyTest {
 
     @Test
     void should_get_message_when_parking_car_give_wrong_carTicket() {
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Car car = new Car();
 
+        // when
+        parkingBoy.park(car);
+        CarTicket carTicket = new CarTicket();
+        Car car1 = parkingBoy.fetch(carTicket);
+
+        // then
+        assertEquals("Unrecognized parking ticket.", parkingBoy.getMessage());
 
     }
 

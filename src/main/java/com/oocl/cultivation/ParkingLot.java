@@ -28,6 +28,7 @@ public class ParkingLot {
 
     public Car fetch(CarTicket carTicket) {
         if (carTicket != null && this.carTicketCarMap.containsKey(carTicket)) {
+
             Car car = this.carTicketCarMap.remove(carTicket);
             return car;
         }
