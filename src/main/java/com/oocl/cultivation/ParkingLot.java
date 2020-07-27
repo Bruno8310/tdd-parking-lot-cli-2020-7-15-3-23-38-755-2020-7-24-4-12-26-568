@@ -6,5 +6,8 @@ import java.util.Map;
 public class ParkingLot {
 
 
+    public CarTicket park(Car car) {
+        return null;
+    }
 
 }
