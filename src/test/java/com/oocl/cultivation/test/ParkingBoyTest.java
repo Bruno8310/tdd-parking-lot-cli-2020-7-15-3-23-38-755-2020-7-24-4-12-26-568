@@ -96,9 +96,9 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
 
         // when
-        parkingBoy.fetch();
+        String message = parkingBoy.fetch();
         // then
-        assertEquals("Please provide your parking ticket.", parkingBoy.getMessage());
+        assertEquals("Please provide your parking ticket.", message);
     }
 
     @Test

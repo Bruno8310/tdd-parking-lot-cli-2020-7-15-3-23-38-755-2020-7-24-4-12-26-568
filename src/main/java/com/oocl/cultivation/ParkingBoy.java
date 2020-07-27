@@ -24,10 +24,7 @@ public class ParkingBoy {
     }
 
     public String fetch() {
-        return "";
+        return this.parkingLot.getMessage();
     }
 
-    public String getMessage() {
-        this.parkingLot.getMessage();
-    }
 }

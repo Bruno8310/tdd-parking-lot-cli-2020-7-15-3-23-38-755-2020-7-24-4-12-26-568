@@ -35,6 +35,11 @@ public class ParkingLot {
     }
 
     public String getMessage() {
+        this.setMessage("Please provide your parking ticket.");
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
