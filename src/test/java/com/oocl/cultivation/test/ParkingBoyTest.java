@@ -64,7 +64,15 @@ public class ParkingBoyTest {
 
     @Test
     void should_return_no_ticket_when_parkingLot_is_full_give_car() {
-
+        // given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        // when
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.park(new Car());
+        }
+        CarTicket carTicket = parkingBoy.park(new Car());
+        // then
+        assertNull(carTicket);
     }
 
     @Test
