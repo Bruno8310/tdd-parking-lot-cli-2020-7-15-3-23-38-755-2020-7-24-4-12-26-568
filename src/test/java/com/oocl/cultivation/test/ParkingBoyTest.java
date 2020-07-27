@@ -144,7 +144,7 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         // when
-        for (int j = 0; j < 12; j++) {
+        for (int j = 0; j < 11; j++) {
             parkingBoy.park(new Car());
         }
         // then

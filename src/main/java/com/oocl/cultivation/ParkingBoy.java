@@ -23,7 +23,22 @@ public class ParkingBoy {
     }
 
     public CarTicket park(Car car) {
-       return this.parkingLot.park(car);
+       boolean isFull = true;
+       for (ParkingLot lot: parkingLotList) {
+           if (lot.getCarTicketCarMap().size() < lot.gerCapacity()) {
+               this.setParkingLot(lot);
+               isFull = false;
+               break;
+           }
+       }
+       if (!isFull) {
+           return this.parkingLot.park(car);
+       }
+       return null;
+}
+
+    private void setParkingLot(ParkingLot lot) {
+        this.parkingLot = lot;
     }
 
     public Car fetch(CarTicket carTicket) {

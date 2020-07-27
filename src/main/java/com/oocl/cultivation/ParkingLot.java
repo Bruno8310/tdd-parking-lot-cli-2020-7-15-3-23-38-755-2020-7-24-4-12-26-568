@@ -7,7 +7,7 @@ public class ParkingLot {
 
     Map<CarTicket, Car> carTicketCarMap;
 
-    int capacity;
+    double capacity;
 
     String message;
 
@@ -17,9 +17,8 @@ public class ParkingLot {
     }
 
     public CarTicket park(Car car) {
-        CarTicket carTicket = new CarTicket();
         if (this.carTicketCarMap.size() < this.capacity) {
-
+            CarTicket carTicket = new CarTicket();
             this.carTicketCarMap.put(carTicket, car);
             return carTicket;
         }
@@ -47,5 +46,13 @@ public class ParkingLot {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Map<CarTicket, Car> getCarTicketCarMap() {
+        return carTicketCarMap;
+    }
+
+    public double gerCapacity() {
+        return capacity;
     }
 }
