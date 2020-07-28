@@ -16,9 +16,12 @@ public class ServiceManagerTest {
     void should_return_parkingBoy_id_when_add_parkingBoy_give_manager_and_parkingBoy() {
         // given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            parkingLots.add(new ParkingLot());
-        }
+
+        ParkingLot parkingLotA = new ParkingLot();
+        ParkingLot parkingLotB = new ParkingLot();
+        parkingLots.add(parkingLotA);
+        parkingLots.add(parkingLotB);
+
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Manager manager = new Manager();
 
@@ -28,4 +31,7 @@ public class ServiceManagerTest {
         // then
         assertEquals(1, result);
     }
+
+
+
 }
