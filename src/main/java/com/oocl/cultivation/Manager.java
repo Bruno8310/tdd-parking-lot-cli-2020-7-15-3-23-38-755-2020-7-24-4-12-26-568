@@ -1,8 +1,18 @@
 package com.oocl.cultivation;
 
-public class Manager {
-    public int addParkingBoyList(ParkingBoy parkingBoy) {
+import java.util.ArrayList;
+import java.util.List;
 
-        return 0;
+public class Manager {
+
+    List<ParkingBoy> parkingBoyList;
+
+    public Manager() {
+        this.parkingBoyList = new ArrayList<>();
+    }
+
+    public int addParkingBoyList(ParkingBoy parkingBoy) {
+        this.parkingBoyList.add(parkingBoy);
+        return this.parkingBoyList.size();
     }
 }
