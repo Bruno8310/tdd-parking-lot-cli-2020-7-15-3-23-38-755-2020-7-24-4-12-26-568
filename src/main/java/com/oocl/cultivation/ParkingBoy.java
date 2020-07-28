@@ -23,6 +23,9 @@ public class ParkingBoy {
     }
 
     public CarTicket park(Car car) {
+        if(this.parkingLotList == null) {
+            return this.parkingLot.park(car);
+        }
        boolean isFull = true;
        for (ParkingLot lot: parkingLotList) {
            if (lot.getCarTicketCarMap().size() < lot.getCapacity()) {
